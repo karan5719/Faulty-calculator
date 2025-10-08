@@ -3,33 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Faulty Calculator</title>
+  <title>Faulty Calculator - Fun Math with a Twist!</title>
+  <meta name="description" content="A fun calculator that gives you the wrong result 10% of the time. Challenge your math skills with this quirky calculator!" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <div class="calculator">
     <h2>Faulty Calculator</h2>
-    <input type="text" id="num1" placeholder="Enter first number" />
+    <p class="subtitle">⚠️ 10% chance of wrong results - Can you spot the errors?</p>
     
-    <select id="operation">
-      <option value="+">Addition (+)</option>
-      <option value="-">Subtraction (-)</option>
-      <option value="*">Multiplication (*)</option>
-      <option value="/">Division (/)</option>
-      <option value="%">Modulus (%)</option>
-      <option value="**">Exponentiation (**)</option>
-      <option value="sqrt">Square Root (√a)</option>
-      <option value="log">Log Base 10 (log₁₀ a)</option>
-      <option value="sin">Sine (sin a°)</option>
-      <option value="cos">Cosine (cos a°)</option>
-      <option value="tan">Tangent (tan a°)</option>
-    </select>
+    <div class="input-group">
+      <label for="num1">First Number</label>
+      <input type="number" id="num1" placeholder="Enter first number" step="any" />
+    </div>
+    
+    <div class="input-group">
+      <label for="operation">Operation</label>
+      <select id="operation">
+        <option value="+">➕ Addition (+)</option>
+        <option value="-">➖ Subtraction (-)</option>
+        <option value="*">✖️ Multiplication (*)</option>
+        <option value="/">➗ Division (/)</option>
+        <option value="%">📊 Modulus (%)</option>
+        <option value="**">🔢 Exponentiation (**)</option>
+        <option value="sqrt">√ Square Root (√a)</option>
+        <option value="log">📈 Log Base 10 (log₁₀ a)</option>
+        <option value="sin">📐 Sine (sin a°)</option>
+        <option value="cos">📐 Cosine (cos a°)</option>
+        <option value="tan">📐 Tangent (tan a°)</option>
+      </select>
+    </div>
 
-    <input type="text" id="num2" placeholder="Enter second number (if needed)" />
+    <div class="input-group">
+      <label for="num2">Second Number (if needed)</label>
+      <input type="number" id="num2" placeholder="Enter second number (if needed)" step="any" />
+    </div>
     
-    <button onclick="calculate()">Calculate</button>
-    <div class="result" id="result"></div>
+    <button onclick="calculate()" id="calculateBtn">
+      <span class="btn-text">Calculate</span>
+      <span class="btn-loading" style="display: none;">Calculating...</span>
+    </button>
+    
+    <div class="result" id="result">
+      <div class="result-placeholder">Your result will appear here</div>
+    </div>
+    
+    <div class="stats" id="stats" style="display: none;">
+      <div class="stat-item">
+        <span class="stat-label">Calculations:</span>
+        <span class="stat-value" id="totalCalculations">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">Errors Detected:</span>
+        <span class="stat-value" id="errorsDetected">0</span>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
